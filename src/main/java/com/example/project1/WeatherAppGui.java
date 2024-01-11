@@ -129,18 +129,21 @@ public class WeatherAppGui extends Application {
 ////                    windField.setText(wind + " C");
 
 
+                   new Thread(()-> {
                         double temperature = (double) weatherData.get("temperature");
                         temperatureField.setText(temperature + " C");
-
-                         
-
+                    }).start();
 
 
-                            long humidity = (long) weatherData.get("humidity");
-                            humidityField.setText(humidity + " %");
+                   new Thread(()-> {
+                        long humidity = (long) weatherData.get("humidity");
+                        humidityField.setText(humidity + " %");
+                    }).start();
 
-                    double windspeed = (double) weatherData.get("windspeed");
-                    windField.setText(windspeed+" ");
+                   new Thread(()-> {
+                        double windspeed = (double) weatherData.get("windspeed");
+                        windField.setText(windspeed + " ");
+                    }).start();
 
 
 
@@ -160,8 +163,8 @@ public class WeatherAppGui extends Application {
 
                     //ImageView icon5 = createIconView("C:\\Users\\ascom\\IdeaProjects\\Project1\\src\\icons\\temprature.png");
 
-                  // ImageView icon1 = createIconView(String.valueOf(getClass().getResource("/src/icons/temprature.png")));
-                   ImageView icon1= createIconView("src\\icons\\temprature.png");
+                    // ImageView icon1 = createIconView(String.valueOf(getClass().getResource("/src/icons/temprature.png")));
+                    ImageView icon1= createIconView("src\\icons\\temprature.png");
 
                     ImageView icon2 = createIconView("src\\icons\\humidity.png");
                     ImageView icon3 = createIconView("src\\icons\\wind.png");
